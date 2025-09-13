@@ -1,3 +1,9 @@
+/**
+ * Merge Sort Algorithm
+ * Time Complexity: O(n log n)
+ * Space Complexity: O(n)
+ */
+
 package Sorting;
 
 public class MergeSort {
@@ -6,48 +12,43 @@ public class MergeSort {
         if (N <= 1)
             return arr;
 
-        int X = N / 2;
-        int[] L = new int[X];
-        int[] R = new int[N - X];
-        for (int i = 0; i < N; i++) {
-            if (i < X) {
-                L[i] = arr[i];
-            } else {
-                R[i - X] = arr[i];
-            }
-        }
+        int mid = N / 2;
+        int[] L = new int[mid];
+        int[] R = new int[N - mid];
+        for (int i = 0; i < mid; i++)
+            L[i] = arr[i];
+        for (int j = 0; j < N - mid; j++)
+            R[j] = arr[j + mid];
+
         L = sort(L);
         R = sort(R);
-        int[] sort_arr = new int[N];
+        int[] sort_arr = merge(L,R);
+
+        return sort_arr;
+    }
+
+    public static int[] merge(int[] small_arr, int[] large_arr) {
+        int[] merged_arr = new int[small_arr.length + large_arr.length];
 
         int i = 0;
         int j = 0;
         int k = 0;
 
-        while (i < X && j < N - X) {
-            int first = L[i];
-            int last = R[j];
-            if (first <= last) {
-                sort_arr[k] = first;
-                i++;
+        while (i < small_arr.length && j < large_arr.length) {
+            if (small_arr[i] <= large_arr[j]) {
+                merged_arr[k++] = small_arr[i++];
             } else {
-                sort_arr[k] = last;
-                j++;
+                merged_arr[k++] = large_arr[j++];
             }
         }
 
-        while(i < X) {
-            sort_arr[k] = L[i];
-            i++;
-            k++;
-        }
-        while(j < N-X) {
-            sort_arr[k] = R[j];
-            j++;
-            k++;
-        }
+        while (i < small_arr.length)
+            merged_arr[k++] = small_arr[i++];
 
-        return sort_arr;
+        while (j < large_arr.length)
+            merged_arr[k++] = large_arr[j++];
+            
+        return merged_arr;
     }
 
     public static void main(String[] args) {
