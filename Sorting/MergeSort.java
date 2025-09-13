@@ -22,9 +22,8 @@ public class MergeSort {
 
         L = sort(L);
         R = sort(R);
-        int[] sort_arr = merge(L,R);
 
-        return sort_arr;
+        return merge(L, R);
     }
 
     public static int[] merge(int[] small_arr, int[] large_arr) {
@@ -47,7 +46,7 @@ public class MergeSort {
 
         while (j < large_arr.length)
             merged_arr[k++] = large_arr[j++];
-            
+
         return merged_arr;
     }
 
