@@ -7,3 +7,9 @@
    - Space Complexity
    - Example main()
 4. Commit, push, open PR: Title "Add <Algorithm> in Java"
+
+   ## 🌟 Contributors
+
+| Name | GitHub | PR |
+|------|--------|----|
+| Soumya | [@SoumyaPratap](https://github.com/SoumyaPratap) | [#1](link) |
