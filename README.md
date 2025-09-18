@@ -1,5 +1,7 @@
 # Java DSA — Hacktoberfest 2025 🚀
 
+![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-2025-blueviolet)
+
 This repository contains Java implementations of classic Data Structures and Algorithms.
 Goal: prepare beginner-friendly problems for Hacktoberfest 2025 and demonstrate DSA skills.
 
